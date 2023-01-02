@@ -27,3 +27,20 @@ function binarySearch(array, item) {
 
 console.log(binarySearch(array, 0));
 console.log('count: ', count);
+
+let countRecursive = 0
+function recursiveBinarySearch(array, item, start, end) {
+    let middle = Math.floor((start + end) / 2)
+    countRecursive++
+    if (item === array[middle]) {
+        return middle
+    }
+    if (item < array[middle]) {
+        return recursiveBinarySearch(array, item, start, middle - 1)
+    } else {
+        return recursiveBinarySearch(array, item, middle + 1, end)
+    }
+}
+
+console.log(recursiveBinarySearch(array, 14, 0, array.length));
+console.log('countRecursive: ', countRecursive);
